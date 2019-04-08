@@ -27,5 +27,5 @@ class Solution:
         return max_area
 
 
-print(3)
+print(2)
 
