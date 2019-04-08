@@ -1,6 +1,8 @@
 #!/usr/bin/python3.6
 # -*- coding:utf-8 -*-
 # https://leetcode.com/problems/4sum/
+# could compute N Sum
+# tips: 先拆成找2个数的和
 
 
 class Solution:
