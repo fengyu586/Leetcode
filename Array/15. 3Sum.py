@@ -1,11 +1,11 @@
 #!/usr/bin/python3.6
 # -*- coding:utf-8 -*-
 # https://leetcode.com/problems/3sum/
-# tips: 先排序
+# tips: 1、先排序 2、利用字典降低时间复杂度
 
 
 class Solution:
-    def threeSum(self, nums):
+    def threeSum1(self, nums):
         n = len(nums)
         nums.sort()
         res = []
@@ -28,3 +28,20 @@ class Solution:
                     first += 1
                     end -= 1
         return res
+
+    def threeSum2(self, nums):
+        n = len(nums)
+        if n < 3:
+            return []
+        nums.sort()
+        res = set()
+        for i, v in enumerate(nums[:-2]):
+            if i > 0 and v == nums[i - 1]:
+                continue
+            d = {}
+            for x in nums[i + 1:]:
+                if x not in d:
+                    d[-v - x] = 1
+                else:
+                    res.add((v, -v - x, x))
+        return list(map(list, res))
