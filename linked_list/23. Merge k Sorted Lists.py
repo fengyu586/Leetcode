@@ -8,7 +8,6 @@
 # Approach 2, 3, 5:  recursion, Compare one by one
 # Approach 4: iteration, Compare one by one
 # Approach 6: by from operator import attrgetter
-# Approach 7:
 
 
 
