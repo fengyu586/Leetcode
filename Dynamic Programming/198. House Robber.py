@@ -30,6 +30,19 @@ class Solution:
             res[i] = max(res[i - 2] + nums[i], res[i - 1])
         return res[-1]
 
+    def rob3(self, nums):       # constant space
+        n = len(nums)
+        if n == 0:
+            return 0
+        if n <= 1:
+            return max(nums)
+        a, b = nums[0], max(nums[0], nums[1])
+        for i in range(2, n):
+            tmp = b
+            b = max(a + nums[i], b)
+            a = tmp
+        return b
+
 
 
 
