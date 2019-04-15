@@ -21,7 +21,7 @@ class Solution:
 
 def main():
     s = Solution()
-    a = [0, 0, 1, 1]
+    a = [0, 1, 1, 0]
     print(s.minCostClimbingStairs2(a))
 
 
