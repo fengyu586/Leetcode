@@ -105,7 +105,8 @@ def main():
     s = Solution()
     nums = [100, 2, 3, 1]
     nums1 = [random.randint(1, 20) for _ in range(20)]
-    print(s.maximumGap(nums1))
+    nums2 = [3, 6, 9, 1]
+    print(s.maximumGap(nums2))
 
 
 if __name__ == '__main__':
