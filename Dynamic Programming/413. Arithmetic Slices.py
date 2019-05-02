@@ -54,7 +54,7 @@ class Solution:
                 count += dp[i]
         return count
 
-    def numberOfArithmeticSlices5(self, A):
+    def numberOfArithmeticSlices5(self, A):         # 动态规划 时间复杂度为O(n)，空间复杂度为O(1)
         n = len(A)
         count = 0
         dp = 0
