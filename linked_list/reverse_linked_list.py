@@ -78,6 +78,22 @@ def reverse2(head):
     return new_head
 
 
+####################### 3、插入法 ###################
+def reverse3(head):
+    # 判断链表是否为空
+    if head is None or head.next is None:
+        return
+    cur = None
+    next = None
+    cur = head.next.next
+    head.next.next = None
+    while cur is not None:
+        next = cur.next
+        cur.next = head.next
+        head.next = cur
+        cur = next
+
+
 if __name__ == '__main__':
     i = 1
     # 链表头结点
@@ -100,7 +116,8 @@ if __name__ == '__main__':
         current = current.next
     print("逆序后：")
     # reverse1(head)
-    reverse2(head)
+    # reverse2(head)
+    reverse3(head)
     cur = head.next
     while cur:
         print(cur.data)
