@@ -83,10 +83,9 @@ def reverse3(head):
     # 判断链表是否为空
     if head is None or head.next is None:
         return
-    cur = None
-    next = None
     cur = head.next.next
     head.next.next = None
+    # 将遍历到的结点插入到头结点的后面
     while cur is not None:
         next = cur.next
         cur.next = head.next
