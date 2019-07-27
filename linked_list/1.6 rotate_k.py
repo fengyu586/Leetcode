@@ -40,11 +40,7 @@ def print_list(head):
         cur = cur.next
 
 
-####################### 1、顺序遍历法 ###################
-
-
-
-####################### 2、快慢指针法 ###################
+####################### 1、快慢指针法 ###################
 def rotate_k1(head, k):
     pre, cur, next = head, head.next, head.next
     while next is not None and k != 0:
