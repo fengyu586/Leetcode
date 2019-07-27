@@ -56,7 +56,7 @@ def rotate_k1(head, k):
         cur = cur.next
         next = next.next
         pre = pre.next
-    pre.next = None
+    pre.next = next
     tmp = head.next
     head.next = cur
     new_cur = cur
@@ -73,7 +73,8 @@ if __name__ == '__main__':
     print_list(head)
     # res = find_last_k0(head, index)
     res = rotate_k1(head, index)
-    print("链表倒数第{}个元素为：{}".format(index, res.data))
+    print("旋转后：")
+    print_list(res)
 
 
 
