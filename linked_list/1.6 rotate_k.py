@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """====================================
-# @Time    : 2019/7/27 19:38
+# @Time    : 2019/7/27 20:21
 # @Author  : Jing
-# @FileName: 1.5 find_ reciprocal_NO.k_element.py
+# @FileName: 1.6 rotate_k.py
 # @IDE: PyCharm
 ======================================="""
 ##########################################
-# 题目描述：
-# 找出单链表中的倒数第k个元素，例如给定单链表：
-# 1->2一＞ 3 一＞4 一＞5 一＞6 一＞7 ，则单链表
-# 的倒数第k=3个元素为5 。
+# 题目描述： 给定单链表 1-＞2->3 一＞4一＞ 5->6->7'
+# k=3 ，那么旋转后的单链表变为
+# 5-> 6->7- > 1->2 一＞3 一＞4。
 # ########################################
 
 class LNode:
@@ -23,7 +22,6 @@ def construct_list():
     """构造链表"""
     i = 1
     head = LNode()
-    tmp = None
     cur = head
     while i < 8:
         tmp = LNode()
@@ -43,32 +41,29 @@ def print_list(head):
 
 
 ####################### 1、顺序遍历法 ###################
-def find_last_k0(head, k):
-    sums = 0
-    tmp = head.next
-    while tmp is not None:
-        sums += 1
-        tmp = tmp.next
-    n = sums-k
-    cur = head.next
-    while n != 0:
-        n -= 1
-        cur = cur.next
-    return cur
+
 
 
 ####################### 2、快慢指针法 ###################
-def find_last_k1(head, k):
-    fast, low = head.next, head.next
-    while fast is not None and k != 0:
+def rotate_k1(head, k):
+    pre, cur, next = head, head.next, head.next
+    while next is not None and k != 0:
         k -= 1
-        fast = fast.next
+        next = next.next
     if k != 0:
         return None
-    while fast is not None:
-        low = low.next
-        fast = fast.next
-    return low
+    while next is not None:
+        cur = cur.next
+        next = next.next
+        pre = pre.next
+    pre.next = None
+    tmp = head.next
+    head.next = cur
+    new_cur = cur
+    while new_cur.next is not None:
+        new_cur = new_cur.next
+    new_cur.next = tmp
+    return head
 
 
 if __name__ == '__main__':
@@ -77,8 +72,20 @@ if __name__ == '__main__':
     print("链表：")
     print_list(head)
     # res = find_last_k0(head, index)
-    res = find_last_k1(head, index)
+    res = rotate_k1(head, index)
     print("链表倒数第{}个元素为：{}".format(index, res.data))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
