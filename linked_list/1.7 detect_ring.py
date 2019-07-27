@@ -28,11 +28,10 @@ def construct_list():
     while i < 8:
         tmp = LNode()
         tmp.data = i
-        tmp.next = None
         cur.next = tmp
-        cur = tmp
+        cur = cur.next
         i += 1
-    cur.next = head.next.next.next
+    cur.next = head.next
     return head
 
 
@@ -51,14 +50,16 @@ def is_loop(head):
 
 def find_loop_node(head, meet_node):
     first = head.next
-    second = meet_node.next
+    second = meet_node
     while first != second:
-        while second != meet_node:
-            if first == second:
+        while second.next != meet_node:
+            if first == second or first == second.next:
                 return first
             second = second.next
+
         second = second.next
         first = first.next
+    return first
 
 
 if __name__ == '__main__':
