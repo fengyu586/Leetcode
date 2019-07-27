@@ -36,7 +36,7 @@ def construct_list():
 
 
 def is_loop(head):
-    """判断是否有环"""
+    """判断是否有环并返回相遇点"""
     if head is None or head.next is None:
         return None
     slow, fast = head.next, head.next
@@ -49,6 +49,7 @@ def is_loop(head):
 
 
 def find_loop_node(head, meet_node):
+    """找出环的入口点"""
     first = head.next
     second = meet_node
     while first != second:
