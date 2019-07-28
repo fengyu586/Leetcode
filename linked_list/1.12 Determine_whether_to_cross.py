@@ -58,7 +58,7 @@ def print_list(head):
         cur = cur.next
 
 
-####################### 1、交换值法 ###################
+####################### 1、首尾相接法 ###################
 def is_intersect(head1, head2):
     if head1 is None or head1.next is None or \
             head2 is None or head2.next is None \
