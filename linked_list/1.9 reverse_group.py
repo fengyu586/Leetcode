@@ -31,7 +31,6 @@ def construct_list():
     while i < 8:
         tmp = LNode()
         tmp.data = i
-        tmp.next = None
         cur.next = tmp
         cur = tmp
         i += 1
