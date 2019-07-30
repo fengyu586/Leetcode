@@ -9,9 +9,6 @@
 # https://leetcode.com/problems/binary-tree-level-order-traversal/
 
 
-
-
-
 class Solution:
     def levelOrder0(self, root):
         if not root:
