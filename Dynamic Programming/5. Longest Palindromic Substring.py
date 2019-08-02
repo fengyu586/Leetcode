@@ -7,7 +7,8 @@
 # @IDE: PyCharm
 ======================================="""
 # https://leetcode.com/problems/longest-palindromic-substring/
-
+# 1、2：Dynamic Programming
+# 3：Manacher's Algorithm
 
 class Solution:
 
