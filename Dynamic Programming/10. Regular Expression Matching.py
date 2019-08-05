@@ -11,7 +11,6 @@
 # Solution 2: Dynamic Programming
 
 
-
 class Solution:
     def isMatch0(self, s, p):
         if not p:
