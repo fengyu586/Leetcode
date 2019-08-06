@@ -9,7 +9,6 @@
 # https://leetcode.com/problems/count-primes/
 
 
-
 class Solution:
     def countPrimes(self, n):
         if n <= 2:
