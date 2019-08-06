@@ -48,7 +48,7 @@ class Solution:
 
     def wiggleMaxLength3(self, nums):           # Time complexity : O(n). Loop inside a loop.
         n = len(nums)                           # Space complexity : O(1).
-        if n < 2:                               # Two arrays of the same length are used for dp.
+        if n < 2:
             return n
         up = 1
         down = 1
@@ -59,8 +59,8 @@ class Solution:
                 up = down + 1
         return max(up, down)
 
-    def wiggleMaxLength4(self, nums):
-        n = len(nums)
+    def wiggleMaxLength4(self, nums):           # Time complexity : O(n). Loop inside a loop.
+        n = len(nums)                           # Space complexity : O(1).
         if n < 2:
             return n
         pre_diff = nums[1] - nums[0]
