@@ -12,6 +12,7 @@
 # Solution 2: Catalan Number  (2n)!/((n+1)!*n!
 import math
 
+
 class Solution:
     def numTrees1(self, n: int) -> int:
         res = [0 for _ in range(n+1)]
