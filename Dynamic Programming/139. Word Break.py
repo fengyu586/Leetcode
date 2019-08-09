@@ -21,12 +21,17 @@ class Solution:
                     break
         return dp[-1]
 
+    def wordBreak1(self, s, words):
+        ok = [True]
+        for i in range(1, len(s) + 1):
+            ok += any(ok[j] and s[j:i] in words for j in range(i)),         # faster than append and += []
+        return ok[-1]
 
 if __name__ == '__main__':
     a = "applepenapple"
     wordDict = ["apple", "pen"]
     s = Solution()
-    print(s.wordBreak(a, wordDict))
+    print(s.wordBreak1(a, wordDict))
 
 
 
