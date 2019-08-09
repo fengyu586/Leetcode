@@ -8,6 +8,7 @@
 ======================================="""
 # https://leetcode.com/problems/longest-valid-parentheses/
 # Solution 1: stack
+# Solution 2: dp
 
 
 class Solution:
