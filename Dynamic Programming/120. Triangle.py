@@ -9,7 +9,8 @@
 # https://leetcode.com/problems/triangle/
 # Solution 1: O(n*n/2) space, top-down
 # Solution 2: Modify Solution, top-down
-
+# Solution 1: O(n) space, bottom-up
+# Solution 2: Modify Solution, bottom-up
 
 
 class Solution:
