@@ -7,6 +7,9 @@
 # @IDE: PyCharm
 ======================================="""
 # https://leetcode.com/problems/kth-largest-element-in-an-array/
+# Solution 1: O(nlogn) Time
+# Solution 2: O(nk) Time
+# Solution 3: O(n) Time
 
 
 class Solution:
