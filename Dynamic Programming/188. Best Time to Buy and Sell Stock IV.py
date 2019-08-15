@@ -15,7 +15,7 @@ class Solution:
         if not prices:
             return 0
         n = len(prices)
-        if k >= n:
+        if k >= n/2:
             res = 0
             for i in range(n-1):
                 res += max(prices[i+1]-prices[i], 0)
