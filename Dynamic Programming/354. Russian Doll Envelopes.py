@@ -25,7 +25,6 @@ class Solution:
         return max(dp)
 
 
-
 if __name__ == '__main__':
     a = [[5,4],[6,4],[6,7],[2,3]]
     s = Solution()
