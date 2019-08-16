@@ -24,7 +24,6 @@ class Solution:
                     dp[i] = min(dp[j]+1, dp[i])
         return dp[n]-1
 
-
     def minCut2(self, s):
         if s == s[::-1]:
             return 0
