@@ -27,7 +27,6 @@ class Solution:
         return dp[(m-1)%2][-1]
 
 
-
 if __name__ == '__main__':
     m, n = 3, 2
     s = Solution()
