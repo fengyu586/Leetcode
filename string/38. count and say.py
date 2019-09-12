@@ -27,5 +27,5 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.countAndSay(5))
+    print(s.countAndSay(5))             # Output is 111221
 
