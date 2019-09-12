@@ -47,5 +47,5 @@ if __name__ == '__main__':
     a = 12
     b = 13
     s = Solution()
-    print(s.numSquares(5254))          # Output is 3
+    print(s.numSquares(a))          # Output is 3
 
