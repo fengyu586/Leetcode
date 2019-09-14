@@ -2,6 +2,8 @@
 # @Author  : Jing
 # @FileName: 118. Pascal's Triangle.py
 # @IDE: PyCharm
+# Solution 1: 暴力解
+# Solution 2: 改进版
 
 
 class Solution:
