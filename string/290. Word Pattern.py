@@ -42,4 +42,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     pattern, strings = "abba", "dog cat cat fish"
-    print(s.wordPattern1(pattern, strings))
+    print(s.wordPattern1(pattern, strings))         # Output is False.
