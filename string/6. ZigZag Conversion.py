@@ -30,15 +30,13 @@ class Solution:
         if numRows == 1:
             return s
         res = ['' for _ in range(numRows)]
-        i = 0
         idx = 0
         flag = -1
-        while i < len(s):
-            res[idx] += s[i]
+        for string in s:
+            res[idx] += string
             if idx == numRows - 1 or idx == 0:
                 flag *= -1
             idx += flag
-            i += 1
         return ''.join(res)
 
 
