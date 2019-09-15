@@ -19,7 +19,7 @@ class Solution:
     def recursion(self, candidates, startIndex, remainTarget, combination, results):
         # 递归的出口
         if remainTarget == 0:
-            results .append([i for i in combination])
+            results.append([i for i in combination])
             return
 
             # 递归的拆解
