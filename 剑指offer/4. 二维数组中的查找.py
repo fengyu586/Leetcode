@@ -10,11 +10,12 @@
 # 输入这样的一个二维数组和一个整数，
 # 判断数组中是否含有该整数。
 ###################################
-
+# Solution 1: 从右上角开始遍历
+# Solution 2：从左下角开始遍历
 
 class Solution:
-    def find_target(self, nums, rows, cols, target):
-        flag = False
+    def find_target1(self, nums, rows, cols, target):
+        Flag = False
         if nums and rows > 0 and cols > 0:
             row, col = 0, cols-1
             while col >= 0 and row < rows:
@@ -25,8 +26,21 @@ class Solution:
                     break
                 else:
                     row += 1
-        return flag
+        return Flag
 
+    def find_target2(self, nums, rows, cols, target):
+        Flag = True
+        if nums and rows > 0 and cols > 0:
+            row, col = rows-1, 0
+            while row >= 0 and col < cols:
+                if nums[row][col] > target:
+                    col += 1
+                elif nums[row][col] == target:
+                    Flag = False
+                    break
+                else:
+                    row -= 1
+            return Flag
 
 if __name__ == '__main__':
     nums = [[1, 2, 8, 9],
@@ -36,4 +50,5 @@ if __name__ == '__main__':
     rows, cols = 4, 4
     target = 7
     s = Solution()
-    print(s.find_target(nums, rows, cols, target))          #Output is True.
+    # Output is True.
+    print(s.find_target2(nums, rows, cols, target))
