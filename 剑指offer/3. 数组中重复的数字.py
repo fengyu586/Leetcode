@@ -11,6 +11,8 @@ class Solution:
     def duplicate1(self, nums):
         if nums is None or len(nums) == 0:
             return None
+        if max(nums) > len(nums) or min(nums) < 0:
+            return None
         nums = sorted(nums)
         res = set()
         for i in range(1, len(nums)):
@@ -20,6 +22,8 @@ class Solution:
 
     def duplicate2(self, nums):
         if nums is None or len(nums) == 0:
+            return None
+        if max(nums) > len(nums) or min(nums) < 0:
             return None
         tmp = dict()
         res = set()
@@ -32,6 +36,8 @@ class Solution:
 
     def duplicate3(self, nums):
         if nums is None or len(nums) == 0:
+            return None
+        if max(nums) > len(nums) or min(nums) < 0:
             return None
         res = set()
         for i in range(len(nums)):
