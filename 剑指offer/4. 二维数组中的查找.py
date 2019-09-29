@@ -42,6 +42,7 @@ class Solution:
                     row -= 1
             return Flag
 
+
 if __name__ == '__main__':
     nums = [[1, 2, 8, 9],
             [2, 4, 9, 12],
