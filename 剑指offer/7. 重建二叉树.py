@@ -6,13 +6,7 @@
 # 8a19cbe657394eeaac2f6ea9b0f6fcf6?
 # tpId=13&tqId=11157&tPage=1&rp=1&ru=/ta/
 # coding-interviews&qru=/ta/coding-interviews/question-ranking
-
-
-class TreeNode:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from base import TreeNode
 
 
 class Solution:
