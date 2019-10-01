@@ -14,8 +14,9 @@ class Deque:
         self.stack1.append(val)
 
     def pop(self):
-        while self.stack1:
-            self.stack2.append(self.stack1.pop())
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
         return self.stack2.pop()
 
 
@@ -37,23 +38,26 @@ class Stack:
                 self.deque1.append(self.deque2.pop(0))
         elif len(self.deque1) == 1:
             val = self.deque1.pop(0)
-        else:
-            pass
         return val
 
 
 
 if __name__ == '__main__':
-    # deque = Deque()
-    # for i in range(5):
-    #     deque.push(i)
-    # while deque.stack1 or deque.stack2:
-    #     print(deque.pop())
-    stack = Stack()
+    deque = Deque()
     for i in range(5):
-        stack.push(i)
-    while stack.deque1:
-        print(stack.pop())
+        deque.push(i)
+    for i in range(2):
+        print(deque.pop())
+    deque.push(1)
+    print(deque.pop())
+    deque.push(4)
+    while deque.stack2 or deque.stack1:
+        print(deque.pop())
+    # stack = Stack()
+    # for i in range(5):
+    #     stack.push(i)
+    # while stack.deque1:
+    #     print(stack.pop())
 
 
 
