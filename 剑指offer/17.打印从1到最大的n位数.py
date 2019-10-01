@@ -50,11 +50,8 @@ def print_max_of_n_digit1(m):
 
 def get_string_recursively(string, length, index):
     if index == length - 1:
-        if string == ['0'] * length:
-            return None
-        else:
-            print_digit(string)
-            return None
+        print_digit(string)
+        return None
     for i in range(10):
         string[index+1] = str(i)
         get_string_recursively(string, length, index+1)
