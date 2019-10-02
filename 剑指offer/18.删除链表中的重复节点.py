@@ -6,13 +6,14 @@
 
 def deleteDuplication(pHead):
     # write code here
+    # 考虑特殊情况
     if pHead is None:
         return None
     pre = None
     cur = pHead
     while cur:
         nxt = cur.next
-        need_delete = False
+        need_delete = False         # 标志是否有重复节点
         if nxt and nxt.val == cur.val:
             need_delete = True
         if not need_delete:
@@ -23,7 +24,7 @@ def deleteDuplication(pHead):
             while cur and cur.val == val:
                 nxt = cur.next
                 cur = nxt
-            if not pre:
+            if not pre:         # 检查pre是否是空指针
                 pHead = cur
             else:
                 pre.next = cur
