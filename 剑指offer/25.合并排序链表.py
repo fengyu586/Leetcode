@@ -16,7 +16,6 @@ class Solution:
         # write code here
         if not pHead1 or not pHead2:
             return pHead1 or pHead2
-        pHead = None
         if pHead1.val < pHead2.val:
             pHead = pHead1
             pHead1 = pHead1.next
