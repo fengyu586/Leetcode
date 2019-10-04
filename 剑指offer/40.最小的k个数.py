@@ -35,8 +35,6 @@ def get_least_numbers(nums, k):
     print(res)
 
 
-
-
 if __name__ == '__main__':
     nums = [4, 5, 1, 6, 2, 7, 3, 8]
     get_least_numbers(nums, 4)
