@@ -2,7 +2,7 @@
 # @Author  : Jing
 # @FileName: 36.二叉搜索树与双向链表.py
 # @IDE: PyCharm
-from base import print_linked_list
+
 
 def reConstructBinaryTree(pre, tin):
     """根据先序遍历序列和中序遍历序列构建二叉树"""
