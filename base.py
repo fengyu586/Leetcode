@@ -4,6 +4,7 @@
 # @IDE: PyCharm
 
 
+pre_order_res, in_order_res, post_order_res = [], [], []
 class TreeNode:
     def __init__(self, val, left=None, right=None, next=None):
         self.val = val
@@ -28,6 +29,35 @@ def reConstructBinaryTree(pre, tin):
     return flag
 
 
+def pre_order(root):
+    if not root:
+        return None
+    pre_order_res.append(root.val)
+    if root.left:
+        pre_order(root.left)
+    if root.right:
+        pre_order(root.right)
+
+
+def in_order(root):
+    if not root:
+        return None
+    if root.left:
+        in_order(root.left)
+    in_order_res.append(root.val)
+    if root.right:
+        in_order(root.right)
+
+def post_order(root):
+    if not root:
+        return None
+    if root.left:
+        post_order(root.left)
+    if root.right:
+        post_order(root.right)
+    post_order_res.append(root.val)
+
+
 class link_node:
     def __init__(self, val, node=None):
         self.val = val
@@ -35,6 +65,22 @@ class link_node:
 
 
 def print_linked_list(head):
+    if not head:
+        return head
+    res = []
     while head:
-        print(head.val)
+        res.append(head.val)
         head = head.next
+    print(res)
+
+if __name__ == '__main__':
+    preOrder = [10, 5, 4, 7, 12]
+    inOrder = [4, 5, 7, 10, 12]
+    flag = reConstructBinaryTree(preOrder, inOrder)
+    pre_order(flag)
+    in_order(flag)
+    post_order(flag)
+    print(pre_order_res)
+    print(in_order_res)
+    print(post_order_res)
+
