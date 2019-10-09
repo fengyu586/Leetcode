@@ -52,13 +52,6 @@ class Solution:
             cur = cur.left
         return cur
 
-def get_all(res):
-    print(id(res))
-    n = 10
-    for i in range(n):
-        res.append(i)
-    res.remove(2)
-
 
 if __name__ == '__main__':
     preOrder = [4, 2, 1, 3, 6, 5, 7]
