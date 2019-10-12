@@ -31,20 +31,19 @@ class Solution:
     def __init__(self):
         self.flag = -1
 
-    def pre_order(self, root, s):
+    def pre_order(self, root):
         if not root:
             s = '#,'
             return s
         s = str(root.val) + ','
-        left = self.pre_order(root.left, s)
-        right = self.pre_order(root.right, s)
+        left = self.pre_order(root.left)
+        right = self.pre_order(root.right)
         s += left + right
         return s
 
     def Serialize(self, root):
         # write code here
-        s = ''
-        s = self.pre_order(root, s)
+        s = self.pre_order(root)
         return s
 
     def Deserialize(self, s):
