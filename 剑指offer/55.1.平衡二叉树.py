@@ -2,7 +2,7 @@
 # @Author  : Jing
 # @FileName: 55.1.平衡二叉树.py
 # @IDE: PyCharm
-
+# Solution: 暴力法
 
 def reConstructBinaryTree(pre, tin):
     """根据先序遍历序列和中序遍历序列构建二叉树"""
@@ -38,10 +38,10 @@ class Solution:
         right = self.Balance(root.right)
         return 1+max(left, right)
 
-    def IsBalance(self, root):
+    def IsBalanced(self, root):
         if not root:
             return True
-        if self.IsBalance(root.left) and self.IsBalance(root.right):
+        if self.IsBalanced(root.left) and self.IsBalanced(root.right):
             self.left = self.Balance(root.left)
             self.right = self.Balance(root.right)
             diff = self.left-self.right
