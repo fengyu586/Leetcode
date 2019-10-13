@@ -42,15 +42,6 @@ class Solution:
         s += left + right
         return s
 
-    def in_order(self, root):
-        if root is None:
-            s = '#,'
-            return s
-        s = self.in_order(root.left)
-        s += str(root.val)+','
-        s += self.in_order(root.right)
-        return s
-
     def post_order(self, root):
         if not root:
             s = '#,'
@@ -64,10 +55,6 @@ class Solution:
     def pre_order_Serialize(self, root):
         # write code here
         s = self.pre_order(root)
-        return s
-
-    def in_order_Serialize(self, root):
-        s = self.in_order(root)
         return s
 
     def post_order_Serialize(self, root):
@@ -89,25 +76,6 @@ class Solution:
         # write code here
         s = s.split(',')
         return self.pre_deserialize(s)
-
-    def in_order_deserialize(self, s, start, end):
-        flag = (start+end) >> 1
-        if s[flag] == '#':
-            return None
-        left = self.in_order_deserialize(s, start, flag-1)
-        node = TreeNode(int(s[flag]))
-        right = self.in_order_deserialize(s, flag+1 ,end)
-        if left:
-            node.left = left
-        if right:
-            node.right = right
-        return node
-
-    def in_order_Deserialize(self, s):
-        # 中序遍历
-        s = s.split(',')
-        node = self.in_order_deserialize(s, 0, len(s)-1)
-        return node
 
     def post_order_deserialize(self, s):
         self.post_flag -= 1
@@ -134,10 +102,10 @@ if __name__ == '__main__':
     inOrder = [1, 2, 3, 4, 5, 6, 7]
     flag = reConstructBinaryTree(preOrder, inOrder)
     s = Solution()
-    string = '#,8,#,6,#,10,#,5,#,7,#,9,#,11,#'
+    string = s.pre_order_Serialize(flag)
     print(string)
-    a = s.in_order_Deserialize(string)
-    print(s.in_order_Serialize(a))
+    a = s.pre_order_Deserialize(string)
+    print(s.pre_order_Serialize(a))
 
 
 
