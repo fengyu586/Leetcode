@@ -17,27 +17,31 @@ class Solution:
                     res += 1
         return res
 
-    def NumberOf1Between1AndN_Solution2(self, n):
-        str_n = str(n)
-        length = len(str_n)
+    def numberOf1(self, n):
+        length = len(n)
+        first = int(n[0])
         if length == 1:
-            if n == 0:
+            if first == 0:
                 return 0
             else:
                 return 1
-        first = int(str_n[0])
+        # 求最高位为1的数字个数
+        num_first_digit = 0
+        if first == 1:
+            num_first_digit = int(n[1:]) + 1
+        elif first > 1:
+            num_first_digit = 10 ** (length - 1)
+        # 求次高位为1的数字个数
+        num_other_digit = first * (length - 1) * 10 ** (length - 2)
+        # 求去掉最高位后的数字中1的个数
+        num_recursion_digit = self.numberOf1(n[1:])
+        return num_first_digit + num_other_digit + num_recursion_digit
 
-        # 满足最高位为1的数字的个数，仅关心最高位为1
-        num_first_1 = 0
-        if first > 1:
-            num_first_1 = 10**(length-1)
-        elif first == 1:
-            num_first_1 = int(str_n[1:])+1
-
-        # 求满足最高位非零，其他位任意一位为1的数字个数，仅关心其他位为1，最高位是否为1不关心。
-        num_other_1 = first*(length-1)*10**(length-2)
-        num_recursion_1 = self.NumberOf1Between1AndN_Solution2(int(str_n[1:]))
-        return num_first_1+num_other_1+num_recursion_1
+    def NumberOf1Between1AndN_Solution2(self, n):
+        # write code here
+        if n <= 0:
+            return 0
+        return self.numberOf1(str(n))
 
 
 if __name__ == '__main__':
