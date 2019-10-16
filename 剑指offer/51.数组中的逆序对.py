@@ -10,6 +10,8 @@ class Solution:
             copy[start] = data[start]
             return 0
         length = (end-start)//2
+
+        # count the number of inverse pair in left and right
         left = self.InversePairsCore(data, copy, start, start+length)
         right = self.InversePairsCore(data, copy, start+length+1, end)
         i = start+length
