@@ -2,75 +2,70 @@
 # @Author  : Jing
 # @FileName: 矩阵中的路径.py
 # @IDE: PyCharm
+# Solution 1: DFS（回溯法）
 
 
-def has_path_core(matrix, rows, cols, row, col, string, path_length, visited):
-    if path_length == len(string):
-        return True
-    hasPath = False
-    if 0 <= col < cols and 0 <= row < rows and matrix[
-            row][col] == string[path_length] and not visited[row][col]:
-        path_length += 1
-        visited[row][col] = True
-        hasPath = has_path_core(
-            matrix,
-            rows,
-            cols,
-            row -
-            1,
-            col,
-            string,
-            path_length,
-            visited) or has_path_core(
-            matrix,
-            rows,
-            cols,
-            row,
-            col -
-            1,
-            string,
-            path_length,
-            visited) or has_path_core(
-            matrix,
-            rows,
-            cols,
-            row +
-            1,
-            col,
-            string,
-            path_length,
-            visited) or has_path_core(
-                matrix,
-                rows,
-                cols,
-                row,
-                col +
-                1,
-                string,
-                path_length,
-            visited)
-    if not hasPath:
-        path_length -= 1
-        visited[row][col] = False
-    return hasPath
+class Solution:
+    def hasPath(self, matrix, rows, cols, path):
+        if len(matrix) == 0:
+            return False
+        if len(path) == 0:
+            return True
+        # parse matrix
+        m = []
+        for i in range(rows):
+            offset = i * cols
+            row = []
+            for j in range(cols):
+                row.append(matrix[offset + j])
+            m.append(row)
 
+        # build visited
+        visited = [[False for j in range(cols)] for i in range(rows)]
 
-def has_path(matrix, rows, cols, string):
-    if not matrix or rows < 1 or cols < 1 or not string:
+        # scan all cells
+        for i in range(rows):
+            for j in range(cols):
+                if self.dfs(m, visited, i, j, rows, cols, path):
+                    return True
         return False
-    path_length = 0
-    visited = [[False for _ in range(cols)] for i in range(rows)]
-    for row in range(rows):
-        for col in range(cols):
-            if has_path_core(matrix, rows, cols, row, col, string, path_length, visited):
-                return True
-    del visited
-    return False
+
+    def dfs(self, m, visited, i, j, rows, cols, path):
+        # terminal conditions
+        if i < 0 or i == rows:
+            return False
+        if j < 0 or j == cols:
+            return False
+        if visited[i][j]:
+            return False
+
+        # visit self
+        if path[0] != m[i][j]:
+            return False
+        visited[i][j] = True
+        nextPath = path[1:]
+        if len(nextPath) == 0:
+            return True
+
+        # visit neighbours
+        if self.dfs(m, visited, i + 1, j, rows, cols, nextPath):
+            return True
+        if self.dfs(m, visited, i - 1, j, rows, cols, nextPath):
+            return True
+        if self.dfs(m, visited, i, j + 1, rows, cols, nextPath):
+            return True
+        if self.dfs(m, visited, i, j - 1, rows, cols, nextPath):
+            return True
+
+        # unvisit self
+        visited[i][j] = False
+        return False
 
 
 if __name__ == '__main__':
-    matrix = [['a', 'b', 't', 'g'], ['c', 'f', 'c', 's'], ['j', 'd', 'e', 'h']]
-    rows, cols = len(matrix), len(matrix[0])
-    string = 'agsc'
-    print(has_path(matrix, rows, cols, string))
+    nums = ['A', 'B', 'C', 'E', 'S', 'F', 'C', 'S', 'A', 'D', 'E', 'E']
+    rows, cols = 3, 4
+    path = ['A', 'B', 'C', 'C', 'E', 'D']
+    s = Solution()
+    print(s.hasPath(nums, rows, cols, path))
 
