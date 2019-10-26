@@ -41,42 +41,6 @@ class Solution:
                 flag = self.check(sub_board, 3, 3, flag, False, True)
         return flag
 
-        # for row in range(rows):
-        #     dic = {}
-        #     for col in range(cols):
-        #         num = board[row][col]
-        #         if num not in dic:
-        #             dic[num] = 1
-        #         elif num != '.':
-        #             return False
-        #         else:
-        #             dic[num] += 1
-        # for col in range(cols):
-        #     dic = {}
-        #     for row in range(rows):
-        #         num = board[row][col]
-        #         if num not in dic:
-        #             dic[num] = 1
-        #         elif num != '.':
-        #             return False
-        #         else:
-        #             dic[num] += 1
-        # for i in range(3):
-        #     row_board = board[i*3:(i+1)*3]
-        #     for j in range(3):
-        #         sub_board = [tmp[j*3:(j+1)*3] for tmp in row_board]
-        #         dic = {}
-        #         for row in range(3):
-        #             for col in range(3):
-        #                 num = sub_board[row][col]
-        #                 if num not in dic:
-        #                     dic[num] = 1
-        #                 elif num != '.':
-        #                     return False
-        #                 else:
-        #                     dic[num] += 1
-        # return True
-
 
 if __name__ == '__main__':
     nums = [[".",".",".",".","5",".",".","1","."],
