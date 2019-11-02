@@ -8,7 +8,7 @@
 
 
 class Solution:
-    def search(self, nums, target):
+    def search1(self, nums, target):
         if not nums:
             return False
         for num in nums:

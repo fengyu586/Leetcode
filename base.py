@@ -58,7 +58,7 @@ def post_order(root):
     post_order_res.append(root.val)
 
 
-class link_node:
+class ListNode:
     def __init__(self, val, node=None):
         self.val = val
         self.next = node
@@ -72,6 +72,18 @@ def print_linked_list(head):
         res.append(head.val)
         head = head.next
     print(res)
+
+def contruct_linked_list(nums):
+    if not nums:
+        return None
+    header = ListNode(nums[0])
+    cur = header
+    for num in nums[1:]:
+        node = ListNode(num)
+        cur.next = node
+        cur = cur.next
+    return header
+
 
 if __name__ == '__main__':
     preOrder = [10, 5, 4, 7, 12]
