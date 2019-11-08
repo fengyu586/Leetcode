@@ -29,33 +29,40 @@ def reConstructBinaryTree(pre, tin):
     return flag
 
 
-def pre_order(root):
-    if not root:
-        return None
-    pre_order_res.append(root.val)
-    if root.left:
-        pre_order(root.left)
-    if root.right:
-        pre_order(root.right)
+class PrintTree(object):
+    def __init__(self):
+        self.res = []
 
+    def pre_order(self, root):
+        if not root:
+            return None
+        self.res.append(root.val)
+        if root.left:
+            self.pre_order(root.left)
+        if root.right:
+            self.pre_order(root.right)
 
-def in_order(root):
-    if not root:
-        return None
-    if root.left:
-        in_order(root.left)
-    in_order_res.append(root.val)
-    if root.right:
-        in_order(root.right)
+    def in_order(self, root):
+        if not root:
+            return None
+        if root.left:
+            self.in_order(root.left)
+        self.res.append(root.val)
+        if root.right:
+            self.in_order(root.right)
 
-def post_order(root):
-    if not root:
-        return None
-    if root.left:
-        post_order(root.left)
-    if root.right:
-        post_order(root.right)
-    post_order_res.append(root.val)
+    def post_order(self, root):
+        if not root:
+            return None
+        if root.left:
+            self.post_order(root.left)
+        if root.right:
+            self.post_order(root.right)
+        self.res.append(root.val)
+
+    def print_tree(self):
+        print(self.res)
+        self.res = []
 
 
 class ListNode:
@@ -89,10 +96,11 @@ if __name__ == '__main__':
     preOrder = [10, 5, 4, 7, 12]
     inOrder = [4, 5, 7, 10, 12]
     flag = reConstructBinaryTree(preOrder, inOrder)
-    pre_order(flag)
-    in_order(flag)
-    post_order(flag)
-    print(pre_order_res)
-    print(in_order_res)
-    print(post_order_res)
+    p = PrintTree()
+    p.pre_order(flag)
+    p.print_tree()
+    p.in_order(flag)
+    p.print_tree()
+    p.post_order(flag)
+    p.print_tree()
 
