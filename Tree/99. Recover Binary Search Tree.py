@@ -3,7 +3,7 @@
 # @FileName: 99. Recover Binary Search Tree.py
 # @IDE: PyCharm
 # https://leetcode.com/problems/recover-binary-search-tree/
-from base import TreeNode, reConstructBinaryTree, pre_order
+from base import TreeNode, reConstructBinaryTree, PrintTree
 import sys
 
 
@@ -35,11 +35,35 @@ class Solution:
         self.first.val, self.second.val = self.second.val, self.first.val
         return self.root
 
+    def recoverTree1(self, root):
+        if not root:
+            return
+        stack = []
+        res, first, second = None, None, None
+        node = root
+        while True:
+            while node:
+                stack.append(node)
+                node = node.left
+            if not stack:
+                break
+            tmp_node = stack.pop()
+            if res and res.val > tmp_node.val:
+                if not first:
+                    first = tmp_node
+                second = res
+            res = tmp_node
+            node = tmp_node.right
+        first.val, second.val = second.val, first.val
+        return root
+
 
 if __name__ == '__main__':
     preOrder = [3, 1, 4, 2]
     inOrder = [1, 3, 2, 4]
     root = reConstructBinaryTree(preOrder, inOrder)
     s = Solution()
-    root = s.recoverTree(root)
-    print(pre_order(root))
+    p = PrintTree()
+    root = s.recoverTree1(root)
+    p. in_order(root)
+    print(p.res)
